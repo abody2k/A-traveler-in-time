@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://147iuue7oqo5"]
+
+[node name="TimelineCreature" type="CharacterBody3D"]

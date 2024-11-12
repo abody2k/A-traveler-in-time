@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://banh28rx6b3t3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xatum"]
+height = 2.55436
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_305v4"]
+
+[node name="MainCharacter" type="CharacterBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_xatum")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_305v4")
