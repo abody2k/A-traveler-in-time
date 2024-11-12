@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://o68npgqwpf7j"]
+[gd_scene load_steps=3 format=3 uid="uid://o68npgqwpf7j"]
+
+[ext_resource type="Script" path="res://scenes/interactive_zone.gd" id="1_isg0u"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mwxcy"]
 size = Vector3(1.54858, 2.22937, 1.3407)
 
 [node name="interactive_Zone" type="Area3D"]
+script = ExtResource("1_isg0u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0904541, 0.614685, 0.170349)
 shape = SubResource("BoxShape3D_mwxcy")
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
