@@ -15,6 +15,14 @@ func _process(delta):
 func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	#check if this is the main character if so show the correct interaction UI
 	
+	match typeOfInteraction:
+		
+		#TO DO RN, add all the other cases
+		#in time traveling machine show the UI that makes the user time travel to
+		#a speicific date and time which such UI doesn't exist yet lol
+		TypesOfInteractions.TIME_TRAVELING_MACHINE:
+			print("") 
+	
 	
 	pass # Replace with function body.
 
