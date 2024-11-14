@@ -3,6 +3,7 @@ extends Control
 enum Dialog_type {ONE_TIME,MULTIPLE_TIMES}
 @export var content : String
 @export var type : Dialog_type
+var tween : Tween
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -10,10 +11,29 @@ func _ready():
 
 
 func show_dialog():
+	visible=true
+	$Panel/text.visible_ratio=0
+	$Panel/text.text= content
+	tween = get_tree().create_tween()
+	tween.tween_property($Panel/text,"visible_ratio",1,3)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	
+	if visible:
+		if Input.is_action_just_pressed("interact"):
+			
+			if(tween.is_running()):
+				tween.stop()
+				$Panel/text.visible_ratio=1
+			else:
+				_on_interact_pressed()
+			pass
+		pass
+		
+		
 	pass
 
 

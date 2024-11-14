@@ -10,6 +10,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qthip")
+content = "Hello there HOOO HOOOO HOOOOOOOOOOOOOOO"
+type = 1
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -42,6 +44,7 @@ offset_right = 0.464966
 offset_bottom = -0.0400085
 grow_horizontal = 2
 text = "Nothing here"
-fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
 
 [connection signal="pressed" from="Panel/Button" to="." method="_on_interact_pressed"]
