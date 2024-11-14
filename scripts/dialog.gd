@@ -19,9 +19,14 @@ func show_dialog():
 	tween = get_tree().create_tween()
 	tween.tween_property($Panel/text,"visible_ratio",1,3)
 	visible=true
-	
-	
 	pass
+	
+func hide_dialog():
+	
+	visible=false
+	if(tween.is_running()):
+		tween.stop()
+		set_process(false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
