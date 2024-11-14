@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://bb4nqcfj84stc"]
+[gd_scene load_steps=2 format=3 uid="uid://bb4nqcfj84stc"]
+
+[ext_resource type="PackedScene" uid="uid://ltlcg11p7who" path="res://scenes/dialog.tscn" id="1_g643p"]
 
 [node name="main" type="Node3D"]
+
+[node name="Control" parent="." instance=ExtResource("1_g643p")]

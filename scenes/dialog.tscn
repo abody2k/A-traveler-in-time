@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ltlcg11p7who"]
+[gd_scene load_steps=2 format=3 uid="uid://ltlcg11p7who"]
+
+[ext_resource type="Script" path="res://scripts/dialog.gd" id="1_qthip"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qthip")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -19,18 +22,18 @@ grow_horizontal = 2
 
 [node name="Button" type="Button" parent="Panel"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.888
+anchor_top = 0.718
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -129.0
-offset_top = -31.0
+offset_left = 0.359863
+offset_top = 0.0199966
 grow_horizontal = 0
 grow_vertical = 0
 text = "Interact (Space)"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+[node name="text" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.997
@@ -40,3 +43,5 @@ offset_bottom = -0.0400085
 grow_horizontal = 2
 text = "Nothing here"
 fit_content = true
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_interact_pressed"]
