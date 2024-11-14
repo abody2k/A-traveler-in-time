@@ -1,10 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://bb4nqcfj84stc"]
+[gd_scene load_steps=8 format=3 uid="uid://bb4nqcfj84stc"]
 
 [ext_resource type="Script" path="res://scripts/testing_script.gd" id="1_2yhif"]
 [ext_resource type="PackedScene" uid="uid://ltlcg11p7who" path="res://scenes/dialog.tscn" id="1_g643p"]
+[ext_resource type="PackedScene" uid="uid://o68npgqwpf7j" path="res://scenes/interactive_zone.tscn" id="2_cv3ci"]
+[ext_resource type="PackedScene" uid="uid://banh28rx6b3t3" path="res://scenes/main_character.tscn" id="4_5retx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pd2fw"]
+sky_top_color = Color(0.352506, 0.417857, 0.745967, 1)
+sky_horizon_color = Color(0.412465, 0.683234, 0.90345, 1)
+sky_cover_modulate = Color(0.284952, 0.663928, 0.901582, 1)
+
+[sub_resource type="Sky" id="Sky_274hf"]
+sky_material = SubResource("ProceduralSkyMaterial_pd2fw")
+
+[sub_resource type="Environment" id="Environment_ti7ih"]
+background_mode = 2
+sky = SubResource("Sky_274hf")
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_2yhif")
 
+[node name="interactive_Zone" parent="." instance=ExtResource("2_cv3ci")]
+typeOfInteraction = 3
+content = "Hello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOO"
+
 [node name="Control" parent="." instance=ExtResource("1_g643p")]
 content = "Hello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOOOOOOOOOOO"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.222178, 0.975006, 0, -0.975006, 0.222178, 0, 0, 0)
+
+[node name="MainCharacter" parent="." instance=ExtResource("4_5retx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Camera3D" type="Camera3D" parent="MainCharacter"]
+transform = Transform3D(1, 0, 0, 0, 0.964299, 0.264816, 0, -0.264816, 0.964299, 0, 0.609879, -0.779324)
+environment = SubResource("Environment_ti7ih")
