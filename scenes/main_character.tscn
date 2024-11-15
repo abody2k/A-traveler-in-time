@@ -107,7 +107,6 @@ autostart = true
 [node name="cam" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09961, 1.74877)
 environment = SubResource("Environment_djtl4")
-fov = 97.9
 near = 0.004
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

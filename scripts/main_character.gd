@@ -11,6 +11,7 @@ var can_count=true
 
 
 func _ready():
+	Input.mouse_mode= Input.MOUSE_MODE_CAPTURED
 	pass
 	
 
@@ -38,7 +39,7 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var input_dir = Input.get_vector("left", "right", "forward", "back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -53,6 +54,7 @@ func _physics_process(delta):
 func disable_glow():
 	$cam.environment.glow_enabled =false
 	$cam.environment.glow_intensity=0
+	
 	$Timer.start()
 	
 	
@@ -60,6 +62,7 @@ func de_glow():
 	var tween = get_tree().create_tween()
 	tween.finished.connect(disable_glow)
 	tween.tween_property($cam.environment,"glow_intensity",0,3)	
+	position=originalPoint.position
 	
 func _on_timer_timeout():
 	#make the screen blur and de blur in 2 seconds
@@ -86,3 +89,12 @@ func disable_dialog():
 func update_timer():
 	
 	$Control/RichTextLabel.text = str(int($Timer.time_left/60))+" : " + str( int($Timer.time_left)%60)
+	
+	
+	
+func _input(event):
+	
+	if event is InputEventMouse:
+		rotate_y(-(0.5 * deg_to_rad((event as InputEventMouseMotion).relative.x)))
+		$cam.rotate_x(-(0.5 * deg_to_rad((event as InputEventMouseMotion).relative.y)))
+		$cam.rotation_degrees.x=clampf($cam.rotation_degrees.x,-30,60)
