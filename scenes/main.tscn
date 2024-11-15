@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb4nqcfj84stc"]
+[gd_scene load_steps=10 format=3 uid="uid://bb4nqcfj84stc"]
 
 [ext_resource type="Script" path="res://scripts/testing_script.gd" id="1_2yhif"]
 [ext_resource type="PackedScene" uid="uid://ltlcg11p7who" path="res://scenes/dialog.tscn" id="1_g643p"]
 [ext_resource type="PackedScene" uid="uid://o68npgqwpf7j" path="res://scenes/interactive_zone.tscn" id="2_cv3ci"]
 [ext_resource type="PackedScene" uid="uid://banh28rx6b3t3" path="res://scenes/main_character.tscn" id="4_5retx"]
+[ext_resource type="PackedScene" uid="uid://37vyeaxl2oko" path="res://scenes/portal.tscn" id="5_kg5hx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ek8ej"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ovqyy"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0k1rb"]
+viewport_path = NodePath("SubViewport2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fn1t8"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_0k1rb")
 
 [node name="main" type="Node3D"]
 script = ExtResource("1_2yhif")
@@ -15,7 +27,7 @@ content = "Hello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOO
 transform = Transform3D(1, 0, 0, 0, 0.222178, 0.975006, 0, -0.975006, 0.222178, 0, 0, 0)
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("originalPoint") instance=ExtResource("4_5retx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.18)
 originalPoint = NodePath("../Node3D")
 
 [node name="interactive_Zone" parent="." instance=ExtResource("2_cv3ci")]
@@ -24,3 +36,24 @@ content = "Hello there HOOO HOOOO HOOOOOOOOOOOOOOOHello there HOOO HOOOO HOOOOOO
 
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Node3D2" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(12.2908, 0, 0, 0, 12.2908, 0, 0, 0, 12.2908, 0, 0, 0)
+mesh = SubResource("BoxMesh_ek8ej")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D2"]
+light_energy = 16.0
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 8, 3)
+mesh = SubResource("CylinderMesh_ovqyy")
+
+[node name="portal" parent="." node_paths=PackedStringArray("cam_pos") instance=ExtResource("5_kg5hx")]
+transform = Transform3D(1.68742, 0, 0, 0, -8.74228e-08, -0.169544, 0, 2, -7.411e-09, 4.63357, 0, 9.27642)
+material_override = SubResource("StandardMaterial3D_fn1t8")
+cam_pos = NodePath("Node3D")
+
+[node name="Node3D" type="Node3D" parent="portal"]
+transform = Transform3D(1, 0, 0, 0, 1, 8.88178e-16, 0, 5.68434e-14, 1, -0.47526, -4.23425, -44.418)
