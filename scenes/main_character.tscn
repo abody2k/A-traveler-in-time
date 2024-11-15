@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://banh28rx6b3t3"]
+[gd_scene load_steps=10 format=3 uid="uid://banh28rx6b3t3"]
 
 [ext_resource type="Script" path="res://scripts/main_character.gd" id="1_x6r8a"]
 
@@ -6,6 +6,50 @@
 height = 2.55436
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_305v4"]
+
+[sub_resource type="FontFile" id="FontFile_ufo4h"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Curve" id="Curve_uutoa"]
+_data = [Vector2(0.314655, 0.131868), 0.0, 0.0, 0, 0, Vector2(0.456897, 0.703297), -6.51526, -6.51526, 0, 0, Vector2(0.784483, 0.879121), -3.89126, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_84y83"]
+curve = SubResource("Curve_uutoa")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yuvev"]
+
+[sub_resource type="Sky" id="Sky_6taxk"]
+sky_material = SubResource("ProceduralSkyMaterial_yuvev")
+
+[sub_resource type="Environment" id="Environment_djtl4"]
+background_mode = 2
+sky = SubResource("Sky_6taxk")
+ambient_light_color = Color(0.617247, 0.867911, 0.909096, 1)
+tonemap_exposure = 4.2
+tonemap_white = 10.09
+ssr_fade_in = 1.94941
+ssr_fade_out = 3.605
+ssr_depth_tolerance = 92.21
+ssao_radius = 14.53
+ssao_intensity = 12.83
+ssao_power = 13.7844
+ssao_detail = 5.0
+ssao_horizon = 1.0
+ssao_light_affect = 0.65
+ssao_ao_channel_affect = 1.0
+ssil_radius = 7.83
+ssil_intensity = 16.0
+glow_intensity = 0.0
+glow_bloom = 1.0
+adjustment_brightness = 1.06
+adjustment_contrast = 6.47
+adjustment_saturation = 1.25
+adjustment_color_correction = SubResource("CurveTexture_84y83")
 
 [node name="MainCharacter" type="CharacterBody3D"]
 script = ExtResource("1_x6r8a")
@@ -17,7 +61,6 @@ shape = SubResource("CapsuleShape3D_xatum")
 mesh = SubResource("CapsuleMesh_305v4")
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,12 +71,42 @@ grow_vertical = 2
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.888
-anchor_right = 1.0
-anchor_bottom = 0.048
-offset_left = -77.9761
-offset_top = 100.0
-offset_right = -78.0
-offset_bottom = 99.896
+anchor_left = 0.82
+anchor_top = 0.154
+anchor_right = 0.932
+anchor_bottom = 0.202
+offset_left = 0.359863
+offset_top = 0.207993
+offset_right = 0.335938
+offset_bottom = 0.103989
 grow_horizontal = 0
 text = "Interact (Space)"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" groups=["timer"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.152
+anchor_bottom = 0.097
+offset_right = 4.896
+offset_bottom = 3.144
+theme_override_fonts/mono_font = SubResource("FontFile_ufo4h")
+theme_override_font_sizes/bold_italics_font_size = 31
+theme_override_font_sizes/italics_font_size = 15
+theme_override_font_sizes/mono_font_size = 9
+theme_override_font_sizes/normal_font_size = 40
+text = "7 : 00"
+scroll_active = false
+tab_size = 9
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 420.0
+one_shot = true
+autostart = true
+
+[node name="cam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.09961, 1.74877)
+environment = SubResource("Environment_djtl4")
+fov = 97.9
+near = 0.004
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
