@@ -26,6 +26,7 @@ func _process(delta):
 		$Control.show_dialog()
 		bdy.call("chng_interaction_btn_state",false)
 		$Control.set_process(true)
+		#$Control.set_process(true)
 		
 		
 		match typeOfInteraction:

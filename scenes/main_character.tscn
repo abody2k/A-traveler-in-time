@@ -51,7 +51,7 @@ adjustment_contrast = 6.47
 adjustment_saturation = 1.25
 adjustment_color_correction = SubResource("CurveTexture_84y83")
 
-[node name="MainCharacter" type="CharacterBody3D"]
+[node name="MainCharacter" type="CharacterBody3D" groups=["mc"]]
 script = ExtResource("1_x6r8a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -69,6 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Button" type="Button" parent="Control"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.82

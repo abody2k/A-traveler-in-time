@@ -4,6 +4,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var cant_move =false
+var can_count=true
 
 @export var originalPoint : Node3D
 
@@ -14,14 +15,19 @@ func _ready():
 	
 
 func chng_interaction_btn_state(state : bool):
-	$Control.visible=state
+
+	$Control/Button.visible=state
 	
 
 func _physics_process(delta):
+	if can_count:
+		update_timer()
+		
+		
 	if(cant_move):
 		return
 		
-	update_timer()
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * 0
@@ -69,7 +75,14 @@ func _on_timer_timeout():
 
 	pass # Replace with function body.
 	
+
+func enable_dialog():
+	cant_move=true
+	$Control.position.y+=110
 	
+func disable_dialog():
+	cant_move=false
+	$Control.position.y-=110
 func update_timer():
 	
 	$Control/RichTextLabel.text = str(int($Timer.time_left/60))+" : " + str( int($Timer.time_left)%60)
