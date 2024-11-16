@@ -503,7 +503,6 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_x6r8a")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5512, 17.537, 3.48463)
 shape = SubResource("CapsuleShape3D_xatum")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
