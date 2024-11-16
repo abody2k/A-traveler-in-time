@@ -8,12 +8,6 @@ point_count = 3
 curve = SubResource("Curve_uutoa")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yuvev"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
-sky_curve = 26.228
-sky_cover_modulate = Color(0, 0, 0, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.104225, 0.10784, 0.113547, 1)
 
 [sub_resource type="Sky" id="Sky_6taxk"]
 sky_material = SubResource("ProceduralSkyMaterial_yuvev")

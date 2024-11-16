@@ -39,12 +39,14 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("left", "right", "forward", "back")
+	var input_dir = Input.get_vector("right", "left", "back", "forward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		$AnimationPlayer.play("mc_moving")
 	else:
+		$AnimationPlayer.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
@@ -96,5 +98,5 @@ func _input(event):
 	
 	if event is InputEventMouse:
 		rotate_y(-(0.5 * deg_to_rad((event as InputEventMouseMotion).relative.x)))
-		$cam.rotate_x(-(0.5 * deg_to_rad((event as InputEventMouseMotion).relative.y)))
+		$cam.rotate_x((0.5 * deg_to_rad((event as InputEventMouseMotion).relative.y)))
 		$cam.rotation_degrees.x=clampf($cam.rotation_degrees.x,-30,60)
