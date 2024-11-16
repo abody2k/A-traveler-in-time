@@ -9,6 +9,9 @@ height = 2.55436
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_305v4"]
 
 [sub_resource type="FontFile" id="FontFile_ufo4h"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/16/0/ascent = 0.0
 cache/0/16/0/descent = 0.0
 cache/0/16/0/underline_position = 0.0
