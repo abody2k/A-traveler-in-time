@@ -7,11 +7,29 @@ var cant_move =false
 var can_count=true
 
 @export var originalPoint : Node3D
+const dialog_template = preload("res://scenes/dialog.tscn")
 
 
+func show_dialog(content:String, fun = null):
+	var dialog = dialog_template.instantiate()
+	dialog.content = content
+	add_child(dialog)
+	if fun :
+		dialog.fun=fun
+		pass
+	dialog.show_dialog()
+	dialog.set_process(true)
+	pass
+	
+	
+func timer_starter():
+	get_parent().get_node("Magical_Door").visible=true
+	get_parent().get_node("magic").play()
+	$Timer.start()
 
 func _ready():
 	Input.mouse_mode= Input.MOUSE_MODE_CAPTURED
+	show_dialog("Oh that was a long road, I wish I could make that dream I once had in the past come true, to go back in time and prevent myself from meeting them once and for all, I wish if there was like a door that takes me to the timeline world that has a very detailed instructions on how to get to where I want and what to do to fix my life",timer_starter)
 	pass
 	
 
@@ -96,7 +114,7 @@ func update_timer():
 	
 func _input(event):
 	
-	if event is InputEventMouse:
+	if event is InputEventMouseMotion:
 		rotate_y(-(0.5 * deg_to_rad((event as InputEventMouseMotion).relative.x)))
 		$cam.rotate_x((0.5 * deg_to_rad((event as InputEventMouseMotion).relative.y)))
 		$cam.rotation_degrees.x=clampf($cam.rotation_degrees.x,-30,60)

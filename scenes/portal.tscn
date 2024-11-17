@@ -15,7 +15,7 @@ albedo_texture = SubResource("ViewportTexture_n6p0b")
 size = Vector2(4, 37)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hi8q3"]
-size = Vector3(3.89479, 0.134, 35.8407)
+size = Vector3(3.89479, 0.283675, 35.8407)
 
 [node name="portal" type="MeshInstance3D"]
 transform = Transform3D(1.68742, 0, 0, 0, -8.74228e-08, -0.169544, 0, 2, -7.411e-09, 0, 0, 0)
@@ -27,7 +27,7 @@ script = ExtResource("1_64ufr")
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
-transform = Transform3D(1, 0, 0, 0, 0.999997, 2.35367e-14, 0, 8.52651e-13, 1, -0.0058983, -0.0265121, -0.130424)
+transform = Transform3D(1, 0, 0, 0, 0.999996, 3.06422e-14, 0, 1.42109e-12, 1, -0.0058983, 0.0483251, -0.130424)
 shape = SubResource("BoxShape3D_hi8q3")
 
 [node name="SubViewport2" type="SubViewport" parent="."]

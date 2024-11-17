@@ -142,12 +142,13 @@ _data = {
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iwo4d"]
-size = Vector3(26.3725, 22.9839, 20.1105)
+size = Vector3(5.21593, 22.9839, 20.1105)
 
 [node name="door" type="Node3D"]
 script = ExtResource("1_bq7ha")
 
 [node name="AnimatableBody3D" type="AnimatableBody3D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AnimatableBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0439759, -0.483719, -5.42782)
@@ -176,7 +177,7 @@ libraries = {
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382584, -0.994965, -4.1911)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.409982, -0.994965, -4.1911)
 shape = SubResource("BoxShape3D_iwo4d")
 
 [node name="audio" type="AudioStreamPlayer3D" parent="."]
