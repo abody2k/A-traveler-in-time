@@ -15,6 +15,7 @@ sky_material = SubResource("ProceduralSkyMaterial_yuvev")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_6taxk")
+sky_rotation = Vector3(0, -6.28319, 0)
 tonemap_exposure = 2.97
 tonemap_white = 10.09
 ssr_fade_in = 1.94941

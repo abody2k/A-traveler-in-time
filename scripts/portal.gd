@@ -17,5 +17,6 @@ func _process(delta):
 
 func _on_area_3d_2_body_entered(body):
 	body.global_position =cam_pos.global_position
+	body.global_rotation.y+=180
 
 	pass # Replace with function body.
