@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://o68npgqwpf7j"]
+[gd_scene load_steps=7 format=3 uid="uid://o68npgqwpf7j"]
 
 [ext_resource type="Script" path="res://scripts/interactive_zone.gd" id="1_isg0u"]
 [ext_resource type="PackedScene" uid="uid://ltlcg11p7who" path="res://scenes/dialog.tscn" id="2_aluqh"]
@@ -28,6 +28,8 @@ refraction_scale = -0.05
 [sub_resource type="CylinderMesh" id="CylinderMesh_hcu8i"]
 height = 0.05
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utlcs"]
+
 [node name="interactive_Zone" type="Area3D"]
 collision_layer = 2
 script = ExtResource("1_isg0u")
@@ -42,5 +44,85 @@ mesh = SubResource("CylinderMesh_hcu8i")
 
 [node name="Control" parent="." instance=ExtResource("2_aluqh")]
 
+[node name="router" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="router"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -15.0
+offset_right = -81.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Y , Reset the connection"
+
+[node name="Button2" type="Button" parent="router"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 62.0
+offset_top = -15.0
+offset_right = 253.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "N , go back to your life"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="router"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024
+anchor_top = 0.293
+anchor_right = 1.0
+anchor_bottom = 0.451
+offset_left = 0.351999
+offset_top = 0.135986
+offset_bottom = -0.248016
+grow_horizontal = 2
+grow_vertical = 2
+text = "Are you sure you want to reset the router? you might lose the connection in this timeline and cause you to forget everything that happened here"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="Control2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Control2"]
+modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "5~6 Months later ..."
+theme_override_styles/panel = SubResource("StyleBoxFlat_utlcs")
+
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="." to="." method="_on_body_shape_exited"]
+[connection signal="pressed" from="router/Button" to="." method="_on_button_pressed"]
+[connection signal="button_down" from="router/Button2" to="." method="_on_button_2_button_down"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
