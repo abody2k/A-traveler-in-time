@@ -10,12 +10,12 @@ enum creature_type {MOVING, STATIC}
 func tween_to_start():
 	var x = get_tree().create_tween()
 	x.finished.connect(tween_to_end)
-	x.tween_property(self,"global_position",pos1,5)	
+	x.tween_property(self,"global_position",pos1.global_position,5)	
 	
 func tween_to_end():
 	var x = get_tree().create_tween()
 	x.finished.connect(tween_to_start)
-	x.tween_property(self,"global_position",pos2,5)	
+	x.tween_property(self,"global_position",pos2.global_position,5)	
 	
 func _ready():
 	$timeline_creature/AnimationPlayer.play("timeline_creature")
@@ -30,3 +30,8 @@ func _ready():
 func _process(delta):
 	
 	pass
+
+
+func _on_area_3d_body_entered(body):
+	body._on_timer_timeout()
+	pass # Replace with function body.

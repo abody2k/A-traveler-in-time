@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bjy0vs1eeiolk"]
+[gd_scene load_steps=20 format=4 uid="uid://bjy0vs1eeiolk"]
 
 [ext_resource type="Texture2D" uid="uid://dh7jftnoxo4wg" path="res://models/a traveler in time_Untitled.png" id="1_svb1m"]
 [ext_resource type="Script" path="res://time_line_creature.gd" id="1_xewxr"]
@@ -207,7 +207,12 @@ emission = Color(1, 1, 0.301961, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_gh25a"]
 top_radius = 0.05
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8ybhi"]
+height = 18.7833
+radius = 4.6989
+
 [node name="timeline_creature" type="Node3D"]
+transform = Transform3D(2.05818, 0, 0, 0, 2.05818, 0, 0, 0, 2.05818, 0, 0, 0)
 script = ExtResource("1_xewxr")
 type = 1
 
@@ -280,3 +285,12 @@ one_shot = true
 transform = Transform3D(-3.84106e-07, -8.78733, 0, 8.78733, -3.84106e-07, 0, 0, 0, 8.78733, 13.8955, 4.52045, 2.6439)
 material_override = SubResource("StandardMaterial3D_8kbas")
 mesh = SubResource("CylinderMesh_gh25a")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(-0.0298232, -0.999555, 0, 0.999555, -0.0298232, 0, 0, 0, 1, 13.4092, 4.83837, 2.48831)
+shape = SubResource("CylinderShape3D_8ybhi")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

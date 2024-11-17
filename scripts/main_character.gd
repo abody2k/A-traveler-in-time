@@ -82,7 +82,7 @@ func de_glow():
 	var tween = get_tree().create_tween()
 	tween.finished.connect(disable_glow)
 	tween.tween_property($cam.environment,"glow_intensity",0,3)	
-	position=originalPoint.position
+	position=originalPoint.global_position
 	
 func _on_timer_timeout():
 	#make the screen blur and de blur in 2 seconds
