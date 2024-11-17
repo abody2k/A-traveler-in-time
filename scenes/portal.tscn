@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/portal.gd" id="1_64ufr"]
 [ext_resource type="Environment" uid="uid://yupkduvk1aid" path="res://options/main_character.tres" id="2_ig6us"]
-[ext_resource type="Script" path="res://scenes/control_mirror.gd" id="3_6kppg"]
+[ext_resource type="Script" path="res://scripts/control_mirror.gd" id="3_6kppg"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n6p0b"]
 viewport_path = NodePath("SubViewport2")

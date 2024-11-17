@@ -1,6 +1,8 @@
-[gd_scene load_steps=14 format=4 uid="uid://dpi8tjx8e41rm"]
+[gd_scene load_steps=17 format=4 uid="uid://dpi8tjx8e41rm"]
 
-[ext_resource type="Script" path="res://scenes/door.gd" id="1_bq7ha"]
+[ext_resource type="Script" path="res://door.gd" id="1_bq7ha"]
+[ext_resource type="AudioStream" uid="uid://byofku2rctst8" path="res://audio/door-open.wav" id="2_gaatp"]
+[ext_resource type="AudioStream" uid="uid://dvrb6eo7y786g" path="res://audio/locked.wav" id="3_d0ues"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nxle6"]
 size = Vector3(1.08795, 22.2146, 10.925)
@@ -113,16 +115,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nndfd")
 
-[sub_resource type="Animation" id="Animation_sybxd"]
-resource_name = "open_door_animation"
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatableBody3D")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0.707, 0, 0.707)
-
 [sub_resource type="Animation" id="Animation_3mkvo"]
 length = 0.001
 tracks/0/type = "rotation_3d"
@@ -133,11 +125,24 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_sybxd"]
+resource_name = "open_door_animation"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatableBody3D")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 1, 1, 0, 0.707, 0, 0.707)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bo1kj"]
 _data = {
 "RESET": SubResource("Animation_3mkvo"),
 "open_door_animation": SubResource("Animation_sybxd")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iwo4d"]
+size = Vector3(26.3725, 22.9839, 20.1105)
 
 [node name="door" type="Node3D"]
 script = ExtResource("1_bq7ha")
@@ -167,3 +172,20 @@ skeleton = NodePath("")
 libraries = {
 "": SubResource("AnimationLibrary_bo1kj")
 }
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.382584, -0.994965, -4.1911)
+shape = SubResource("BoxShape3D_iwo4d")
+
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.968086, -0.230773, -0.0977365, 0.223794, 0.971563, -0.0773434, 0.112806, 0.0530023, 0.992202, 0, 0, 0)
+stream = ExtResource("2_gaatp")
+
+[node name="audio2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(0.968086, -0.230773, -0.0977365, 0.223794, 0.971563, -0.0773434, 0.112806, 0.0530023, 0.992202, 0, 0, 0)
+stream = ExtResource("3_d0ues")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

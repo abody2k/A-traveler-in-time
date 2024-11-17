@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bb4nqcfj84stc"]
+[gd_scene load_steps=16 format=4 uid="uid://bb4nqcfj84stc"]
 
 [ext_resource type="Script" path="res://scripts/testing_script.gd" id="1_2yhif"]
 [ext_resource type="PackedScene" uid="uid://ltlcg11p7who" path="res://scenes/dialog.tscn" id="1_g643p"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c33i355iymayo" path="res://scenes/room.tscn" id="3_r0vsp"]
 [ext_resource type="PackedScene" uid="uid://banh28rx6b3t3" path="res://scenes/main_character.tscn" id="4_5retx"]
 [ext_resource type="PackedScene" uid="uid://37vyeaxl2oko" path="res://scenes/portal.tscn" id="5_kg5hx"]
+[ext_resource type="PackedScene" uid="uid://dpi8tjx8e41rm" path="res://scenes/door.tscn" id="7_vxxx6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5p2we"]
 resource_name = "Material.008"
@@ -104,7 +105,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.15073, 0, 58.5901)
 transform = Transform3D(1, 0, 0, 0, 0.222178, 0.975006, 0, -0.975006, 0.222178, 0, 0, 0)
 
 [node name="MainCharacter" parent="." node_paths=PackedStringArray("originalPoint") instance=ExtResource("4_5retx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.35334, 11.18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.35334, 54.0714)
 originalPoint = NodePath("../Node3D")
 
 [node name="interactive_Zone" parent="." instance=ExtResource("2_cv3ci")]
@@ -134,3 +135,7 @@ cam_pos = NodePath("Node3D")
 
 [node name="Node3D" type="Node3D" parent="portal"]
 transform = Transform3D(1, 0, 0, 0, 1, 8.88178e-16, 0, 5.68434e-14, 1, -0.47526, -4.23425, -44.418)
+
+[node name="door" parent="." instance=ExtResource("7_vxxx6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.9744, 11.9335, 76.5828)
+state = true
